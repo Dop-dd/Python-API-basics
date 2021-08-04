@@ -1,0 +1,21 @@
+Introduction
+
+Now that we've introduced APIs and learned a bit about HTTP and REST, 
+e will work on building an application (the recipe-sharing app known as Smilecook). 
+In this chapter, we aim to kick-start the actual project development. 
+This is a recipe-sharing platform in which users can create accounts 
+and share their own recipes with other users. As you can imagine, 
+it will contain a lot of API endpoints for our users so that they can
+ manage their recipes. We will be using the Flask-RESTful package to
+  efficiently develop our RESTful API.
+
+This chapter will talk about the CRUD (Create, Read, Update, Delete) 
+of these recipes, as well as how to set the publish status of the recipe.
+
+Recipe Model:
+    name:   The name of the recipe.
+    description:  The description of the recipe.
+    num_of_servings:  The number of servings.
+    cook_time:  The cooking time required. This is an integer whose units are in seconds.
+    directions:   The directions.
+    is_publish:   The publish status of the recipe; the default is draft.
