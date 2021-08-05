@@ -36,7 +36,7 @@ class RecipeResource(Resource):
         recipe.is_publish == True), None)
         if recipe is None:
             return {'message': 'recipe not found'}, HTTPStatus.NOT_FOUND
-        return recipe.data, HTTPStatus.Ok
+        return recipe.data, HTTPStatus.OK
 
         # Implement the put method
     def put(self, recipe_id):
@@ -51,6 +51,16 @@ class RecipeResource(Resource):
         recipe.cook_time = data['cook_time']
         recipe.directions = data['directions']
         return recipe.data, HTTPStatus.OK
+
+    # delete recipe
+    def delete(self, recipe_id):
+        recipe = next((recipe for recipe in recipe_list if recipe.id == recipe_id), None)
+        if recipe is None:
+            return {'message': 'recipe not found'}, HTTPStatus.NOT_FOUND
+            #recipe.is_publish = False
+        recipe_list.remove(recipe)
+        return {}, HTTPStatus.NO_CONTENT
+        
 
 # Define the RecipePublic resource and implement the put method 
 # RecipePublishResource inherits from flask_restful.Resource
